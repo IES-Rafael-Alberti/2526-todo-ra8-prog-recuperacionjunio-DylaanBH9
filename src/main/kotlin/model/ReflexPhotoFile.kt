@@ -12,16 +12,10 @@ class ReflexPhotoFile(originalName: String): PhotoFile(originalName) {
         val minute = secondPart.substring(2..3)
         val second = secondPart.substring(3..4)
         val orderkey = "${year}${month}${day}${hour}${minute}${second}"
-            if (month.toInt() > 12) {
-                throw IllegalArgumentException("Fecha invalida")
-            }else if (day.toInt() > 31) {
-                throw IllegalArgumentException("Fecha invalida")
-            } else if (hour.toInt() > 24) {
-                throw IllegalArgumentException("Hora invalida")
-            } else if (minute.toInt() > 60) {
-                throw IllegalArgumentException("Hora invalida")
-            }
-
+            require(month .toInt()< 12) {"Fecha invalida"}
+            require(day.toInt() < 31) {"Fecha invalida"}
+            require(hour.toInt() < 60) {"Hora invalida"}
+            require(minute.toInt() < 60) {"Hora invalida"}
             return orderkey
     }
 }

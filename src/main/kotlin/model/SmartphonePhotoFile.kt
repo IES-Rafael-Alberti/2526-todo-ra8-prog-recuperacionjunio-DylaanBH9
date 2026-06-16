@@ -12,6 +12,10 @@ class SmartphonePhotoFile(originalName: String): PhotoFile(originalName) {
         val minute = secondPart.substring(2..3)
         val second = secondPart.substring(3..4)
         val orderkey = "${year}${month}${day}${hour}${minute}${second}"
+            require(month .toInt()< 12) {"Fecha invalida"}
+            require(day.toInt() < 31) {"Fecha invalida"}
+            require(hour.toInt() < 60) {"Hora invalida"}
+            require(minute.toInt() < 60) {"Hora invalida"}
             return orderkey
     }
 }

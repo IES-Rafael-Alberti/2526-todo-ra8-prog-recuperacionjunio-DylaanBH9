@@ -6,7 +6,17 @@ import org.iesra.model.TripInput
 class ProcessingSummaryService {
     fun output(proccesedPhotos: ProcessingResult, trip: TripInput) {
         println("Procesadas las fotos de ${trip.place}:")
-        println("")
+        if (proccesedPhotos.errorList.isEmpty()) {
+            println("No se han detectado errores de formato.")
+        } else {
+            proccesedPhotos.errorList.forEach { file, error ->
+                if (file[0] == 'P'){
+                    println("Reflex: $file -> $error")
+                } else {
+                    println("SmartPhone: $file -> $error")
+                }
+            }
+        }
         println("Réflex:")
         println("=======")
         println("Fotos leídas: ${proccesedPhotos.reflexStats.read}")

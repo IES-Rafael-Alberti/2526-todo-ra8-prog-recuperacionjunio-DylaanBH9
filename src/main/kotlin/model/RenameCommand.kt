@@ -2,6 +2,7 @@ package org.iesra.model
 
 class RenameCommand(val source: String, val target: String){
     fun toScriptLine(): String {
-        return "mv $source ${target}.jpg"
+        val extension = source.split(".")[1]
+        return "mv $source ${target}.$extension"
     }
 }
