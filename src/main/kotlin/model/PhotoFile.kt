@@ -1,3 +1,5 @@
 package org.iesra.model
 
-open class PhotoFile (val originalName: String, open var orderKey: String)
+abstract class PhotoFile (val originalName: String){
+    open var orderkey = ""
+}
