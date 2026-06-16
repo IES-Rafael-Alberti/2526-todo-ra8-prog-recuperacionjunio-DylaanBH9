@@ -73,10 +73,12 @@ Respuesta a pregunta 12:
 ## UD7, RA5: Entrada y salida de información
 
 13. Describe el flujo completo de entrada y salida: cómo recibes la ruta por consola, cómo lees el fichero `.in`, qué comprobaciones haces, cómo interpretas sus tres líneas, qué mensajes de resumen o error muestras por consola, cómo generas el fichero `<lugar>.sh` y qué tipos de ficheros usas.
+    - El programa empieza recibiendo la ruta del archivo .in a través de línea de comandos, verificando que se haya ejecutado bien el programa pasando los parámetros correctos. Después leo el fichero .in con el metodo .readLines(). Primero valido el formato del archivo asgurandome que tenga solo tres lineas y que el nombre del lugar sea una sola linea. Luego interpreto las lineas asignando la primera linea al lugar donde se hicieron las fotos, la segunda linea a las fotos hechas por un smartphone y la tercera linea a las fotos hechas por una camara. Por consola muestro cada fichero leido de cada dispositivo, los correctos y lo erroneos de cada uno, y tambien los ficheros erroneos y porque. Para generar el archivo <lugar>.sh hago una variable con un StringBuilder() al que le voy haciendo .appendLine() con cada commando y para terminar hagp un .writeText(StringBuilder.toString()) y con esto paso el stringbuilder a string y escribo el archivo.
 
 Respuesta a pregunta 13:
 
 14. Indica qué alternativas ofrece Kotlin para leer y escribir ficheros. Compara opciones como `File`, `Path`, `readLines`, `bufferedReader`, `writeText` y `bufferedWriter`, y justifica cuál usarías en esta solución.
+    - La diferencia entre File y Path es principalmente que Path es una version moderna de File, los dos hacen lo mismo que es leer y escribir archivos, pero Path está más optimizado y con métodos nuevos. Y la diferencia entre readLines y bufferedReader y tambien el writeText y el bufferedWriter esta en que en ambos casos el buffered es el mas optimo aunque hacen los mismo y yo he utilizado el otro porque me parece mas comodo y en un programa tan chico no afecta.
 
 Respuesta a pregunta 14:
 
